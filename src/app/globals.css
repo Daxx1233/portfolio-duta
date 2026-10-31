@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0a192f;
+  --navy-light: #112240;
+  --navy-lighter: #1d3461;
+  --slate: #8892b0;
+  --slate-light: #a8b2d8;
+  --slate-lighter: #ccd6f6;
+  --white: #e6f1ff;
+  --teal: #64ffda;
+  --teal-dark: #0a3d2e;
+  --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--slate-lighter);
+  font-family: var(--font-geist-sans), "Calibre", "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--navy-lighter);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--navy-lighter);
+  color: var(--slate-lighter);
+}
+
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* Numbered headings */
+.numbered-heading {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--slate-lighter);
+  margin-bottom: 2.5rem;
+}
+
+.numbered-heading::before {
+  content: attr(data-number) ".";
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 400;
+  margin-right: 0.75rem;
+}
+
+.numbered-heading::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--navy-lighter);
+  margin-left: 1.5rem;
+}
+
+/* Teal text */
+.text-teal {
+  color: var(--teal);
+}
+
+/* Section spacing */
+section {
+  padding: 6rem 0;
+}
+
+/* Fade animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Loader */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Social icon hover */
+.social-icon:hover svg {
+  color: var(--teal);
+  transform: translateY(-3px);
+}
+
+/* Resume button */
+.resume-btn {
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  cursor: pointer;
+  background: transparent;
+}
+
+.resume-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Nav link */
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--slate-light);
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+  counter-increment: item 1;
+}
+
+.nav-link:hover {
+  color: var(--teal);
+}
+
+/* Card hover effect */
+.project-card {
+  background: var(--navy-light);
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(2, 12, 27, 0.7);
+}
+
+/* Skill bar */
+.skill-bar {
+  background: var(--navy-lighter);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), #00b4d8);
+  border-radius: 9999px;
+  transition: width 1.5s ease;
+}
+
+/* Timeline */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--teal);
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.1);
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 0;
+  }
+}
